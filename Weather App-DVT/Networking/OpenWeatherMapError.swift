@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum OpenWeatherMappError: Error {
+enum OpenWeatherMapError: Error {
     case requestFailed
     case responseUnsuccessful
     case invalidData
