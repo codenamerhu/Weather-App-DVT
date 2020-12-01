@@ -19,6 +19,7 @@
 		CE6673192576A22900B40105 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673182576A22900B40105 /* Coordinate.swift */; };
 		CE66731C2576AA2C00B40105 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66731B2576AA2C00B40105 /* Constants.swift */; };
 		CE66731E2576B7C400B40105 /* TodayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66731D2576B7C400B40105 /* TodayWeather.swift */; };
+		CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		CE6673182576A22900B40105 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		CE66731B2576AA2C00B40105 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE66731D2576B7C400B40105 /* TodayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeather.swift; sourceTree = "<group>"; };
+		CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		CE66731F2576C61300B40105 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				CE6672E92576A05A00B40105 /* ViewController.swift in Sources */,
 				CE6672EF2576A05A00B40105 /* Weather_App_DVT.xcdatamodeld in Sources */,
 				CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */,
+				CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */,
 				CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */,
 				CE6673192576A22900B40105 /* Coordinate.swift in Sources */,
 				CE66731C2576AA2C00B40105 /* Constants.swift in Sources */,
