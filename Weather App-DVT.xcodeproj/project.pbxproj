@@ -20,6 +20,7 @@
 		CE66731C2576AA2C00B40105 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66731B2576AA2C00B40105 /* Constants.swift */; };
 		CE66731E2576B7C400B40105 /* TodayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66731D2576B7C400B40105 /* TodayWeather.swift */; };
 		CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */; };
+		CE6673232576C7EF00B40105 /* OpenWeatherMapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		CE66731B2576AA2C00B40105 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE66731D2576B7C400B40105 /* TodayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeather.swift; sourceTree = "<group>"; };
 		CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapClient.swift; sourceTree = "<group>"; };
+		CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */,
+				CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */,
 				CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */,
 				CE6673192576A22900B40105 /* Coordinate.swift in Sources */,
+				CE6673232576C7EF00B40105 /* OpenWeatherMapError.swift in Sources */,
 				CE66731C2576AA2C00B40105 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
