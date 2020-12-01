@@ -162,7 +162,6 @@
 				CE6673172576A1C700B40105 /* Models */,
 				CE6672E42576A05A00B40105 /* AppDelegate.swift */,
 				CE6672E62576A05A00B40105 /* SceneDelegate.swift */,
-				CE6672E82576A05A00B40105 /* ViewController.swift */,
 				CE6672EA2576A05A00B40105 /* Main.storyboard */,
 				CE6672F02576A05D00B40105 /* Assets.xcassets */,
 				CE6672F22576A05D00B40105 /* LaunchScreen.storyboard */,
@@ -227,6 +226,7 @@
 		CE66732A2576E6D300B40105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE6672E82576A05A00B40105 /* ViewController.swift */,
 				CE66732B2576E6E500B40105 /* NavViewController.swift */,
 			);
 			path = Views;
