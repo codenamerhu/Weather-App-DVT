@@ -57,7 +57,8 @@ class OpenWeatherMapClient {
         let params: Parameters = [
             "appid":Constants.APP_ID,
             "lat":String(coordinate.latitude),
-            "lon":String(coordinate.longitude)
+            "lon":String(coordinate.longitude),
+            "units":"metric"
         ]
         
         return params

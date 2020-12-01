@@ -89,16 +89,19 @@ class HomeViewController: UIViewController {
         if viewModel.weatherCondition?.lowercased() == "clouds" {
             weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
             currentWeatherBackground.backgroundColor = Constants.CLOUDY_CL
+            tableView.backgroundColor = Constants.CLOUDY_CL
         }
         
         if viewModel.weatherCondition?.lowercased() == "sunny" {
-                   weatherThemeImage.image = UIImage(named: Constants.SUNNY)
-                   currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
+            weatherThemeImage.image = UIImage(named: Constants.SUNNY)
+            currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
+            tableView.backgroundColor = Constants.SUNNY_CL
         }
         
         if viewModel.weatherCondition?.lowercased() == "rainy" {
-                   weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
+            weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
             currentWeatherBackground.backgroundColor = Constants.RAINY_CL
+            tableView.backgroundColor = Constants.RAINY_CL
         }
         
     }
