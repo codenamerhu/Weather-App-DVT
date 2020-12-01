@@ -7,6 +7,7 @@ target 'Weather App-DVT' do
 
   # Pods for Weather App-DVT
 
+  pod "Alamofire"
   target 'Weather App-DVTTests' do
     inherit! :search_paths
     # Pods for testing

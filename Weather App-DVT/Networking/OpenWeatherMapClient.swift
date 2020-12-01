@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class OpenWeatherMapClient {
     static let client = OpenWeatherMapClient()
@@ -23,6 +24,8 @@ class OpenWeatherMapClient {
             completion(nil, .invalidUrl)
             return
         }
+        
+        
         
     }
 }
