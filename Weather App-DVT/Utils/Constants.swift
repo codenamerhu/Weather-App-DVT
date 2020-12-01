@@ -16,6 +16,8 @@ class Constants {
     static let API_ENDPOINT_CURRENT_WEATHER     = "weather/"
     static let API_ENDPOINT_FORECAST_WEATHER    = "forecast/"
     
+    static let APP_ID                           = "8f8fa95299448a196bfb45cb8b1fa439"
+    
     // MARK:- Weater ref properties
     static let WEATHER_CITY         = "city"
     static let WEATHER_TEMP         = "temperature"
