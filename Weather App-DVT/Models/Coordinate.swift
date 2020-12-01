@@ -12,7 +12,7 @@ import CoreLocation
 struct Coordinate {
     
     // Shared Instances
-    static let sharedInstance = Coordinate(latitude: 0.0, longitude: 0.0)
+    static var sharedInstance = Coordinate(latitude: 0.0, longitude: 0.0)
     
     // location manager
     static let locationManager = CLLocationManager()
@@ -28,7 +28,18 @@ struct Coordinate {
             
             print("Coordinates are \(currentLocation?.coordinate.latitude as Any) \(currentLocation?.coordinate.longitude as Any)")
             
+            if(currentLocation?.coordinate.latitude==nil || currentLocation?.coordinate.latitude==nil) {
+                print("Simulcation cannot get location")
+                Coordinate.sharedInstance.latitude = -26.005506844488554
+                Coordinate.sharedInstance.latitude = 28.0839068002685
+            } else {
+                Coordinate.sharedInstance.latitude = (currentLocation?.coordinate.latitude)!
+                Coordinate.sharedInstance.latitude = (currentLocation?.coordinate.longitude)!
+            }
+            
         }
+        
+        completion(locationPermisionStatusGranted)
     }
     
     
