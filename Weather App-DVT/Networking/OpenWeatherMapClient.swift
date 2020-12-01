@@ -15,5 +15,14 @@ class OpenWeatherMapClient {
         return URL(string: Constants.API_BASE_URL)!
     }()
     
-    typealias TodayWeatherCompletionHandler  = (TodayWeather?)
+    typealias TodayWeatherCompletionHandler  = (TodayWeather?, OpenWeatherMapError) -> Void
+    
+    func getTodayWeather(at coordinate: Coordinate, completionHandler completion: @escaping TodayWeatherCompletionHandler) {
+        
+        guard let url = URL(string: Constants.API_ENDPOINT_CURRENT_WEATHER, relativeTo: baseUrl) else {
+            completion(nil, .invalidUrl)
+            return
+        }
+        
+    }
 }
