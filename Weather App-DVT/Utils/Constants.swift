@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Constants {
     
@@ -25,4 +26,15 @@ class Constants {
     static let DATE                 = "date"
     static let LATITUDE             = "lat"
     static let LONGITUDE            = "lon"
+    
+    // MARK:- Images
+    static let SUNNY    = "forest_sunny"
+    static let CLOUDY   = "forest_cloudy"
+    static let RAINY    = "forest_rainy"
+    
+    // MARK:- Color
+    
+    static let SUNNY_CL     = UIColor(hex: "#47AB2Fff")
+    static let CLOUDY_CL    = UIColor(hex: "#54717Aff")
+    static let RAINY_CL     = UIColor(hex: "#57575Dff")
 }

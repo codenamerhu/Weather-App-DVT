@@ -12,10 +12,23 @@ import Alamofire
 
 var todayWeatherViewModel: TodayWeatherViewModel!
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     let locationManager = CLLocationManager()
     var curretLocation: CLLocation!
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var currentTempValueMain: UILabel!
+    @IBOutlet weak var weatherConditionLabel: UILabel!
+    @IBOutlet weak var weatherThemeImage: UIImageView!
+    
+    @IBOutlet weak var currentWeatherBackground: UIView!
+    @IBOutlet weak var minTempValue: UILabel!
+    @IBOutlet weak var currentTempValue: UILabel!
+    @IBOutlet weak var maxTempVlaue: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +67,40 @@ class ViewController: UIViewController {
                 [unowned self] currentWeather, error in
                 if let currentWeather = currentWeather {
                     todayWeatherViewModel = TodayWeatherViewModel(model: currentWeather)
+                    
+                    self.displayTodayWeatherData(using: todayWeatherViewModel)
                 }
             }
         }
+    }
+    
+    func displayTodayWeatherData(using viewModel: TodayWeatherViewModel){
+        ConfigureUI(using: viewModel)
+        self.currentTempValueMain.text = viewModel.temperature
+        self.weatherConditionLabel.text = viewModel.weatherCondition
+        
+        self.minTempValue.text = viewModel.minTemperature
+        self.currentTempValue.text = viewModel.temperature
+        self.maxTempVlaue.text = viewModel.maxTemperature
+    }
+    
+    func ConfigureUI(using viewModel: TodayWeatherViewModel){
+        
+        if viewModel.weatherCondition?.lowercased() == "clouds" {
+            weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
+            currentWeatherBackground.backgroundColor = Constants.CLOUDY_CL
+        }
+        
+        if viewModel.weatherCondition?.lowercased() == "sunny" {
+                   weatherThemeImage.image = UIImage(named: Constants.SUNNY)
+                   currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
+        }
+        
+        if viewModel.weatherCondition?.lowercased() == "rainy" {
+                   weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
+            currentWeatherBackground.backgroundColor = Constants.RAINY_CL
+        }
+        
     }
 
     class Connectivity {
@@ -80,7 +124,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController : CLLocationManagerDelegate {
+extension HomeViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Coordinate.sharedInstance.latitude      = (manager.location?.coordinate.latitude)!

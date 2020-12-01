@@ -12,7 +12,7 @@
 		3A67CE4D9C7B5537482512E2 /* Pods_Weather_App_DVT_Weather_App_DVTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120C9C75374E46B8D56479D8 /* Pods_Weather_App_DVT_Weather_App_DVTUITests.framework */; };
 		CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672E42576A05A00B40105 /* AppDelegate.swift */; };
 		CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672E62576A05A00B40105 /* SceneDelegate.swift */; };
-		CE6672E92576A05A00B40105 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672E82576A05A00B40105 /* ViewController.swift */; };
+		CE6672E92576A05A00B40105 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672E82576A05A00B40105 /* HomeViewController.swift */; };
 		CE6672EC2576A05A00B40105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6672EA2576A05A00B40105 /* Main.storyboard */; };
 		CE6672EF2576A05A00B40105 /* Weather_App_DVT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6672ED2576A05A00B40105 /* Weather_App_DVT.xcdatamodeld */; };
 		CE6672F12576A05D00B40105 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6672F02576A05D00B40105 /* Assets.xcassets */; };
@@ -26,6 +26,7 @@
 		CE6673232576C7EF00B40105 /* OpenWeatherMapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */; };
 		CE6673262576D3BC00B40105 /* TodayWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673252576D3BC00B40105 /* TodayWeatherViewModel.swift */; };
 		CE66732C2576E6E500B40105 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66732B2576E6E500B40105 /* NavViewController.swift */; };
+		CE66732F2576FDCB00B40105 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66732E2576FDCB00B40105 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,7 @@
 		CE6672E12576A05A00B40105 /* Weather App-DVT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App-DVT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6672E42576A05A00B40105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6672E62576A05A00B40105 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE6672E82576A05A00B40105 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE6672E82576A05A00B40105 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE6672EB2576A05A00B40105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE6672EE2576A05A00B40105 /* Weather_App_DVT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather_App_DVT.xcdatamodel; sourceTree = "<group>"; };
 		CE6672F02576A05D00B40105 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapError.swift; sourceTree = "<group>"; };
 		CE6673252576D3BC00B40105 /* TodayWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewModel.swift; sourceTree = "<group>"; };
 		CE66732B2576E6E500B40105 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
+		CE66732E2576FDCB00B40105 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		CE6672E32576A05A00B40105 /* Weather App-DVT */ = {
 			isa = PBXGroup;
 			children = (
+				CE66732D2576FDB000B40105 /* Extensions */,
 				CE66732A2576E6D300B40105 /* Views */,
 				CE6673242576D36C00B40105 /* ModelView */,
 				CE66731F2576C61300B40105 /* Networking */,
@@ -226,10 +229,18 @@
 		CE66732A2576E6D300B40105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE6672E82576A05A00B40105 /* ViewController.swift */,
+				CE6672E82576A05A00B40105 /* HomeViewController.swift */,
 				CE66732B2576E6E500B40105 /* NavViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CE66732D2576FDB000B40105 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE66732E2576FDCB00B40105 /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,7 +501,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE66731E2576B7C400B40105 /* TodayWeather.swift in Sources */,
-				CE6672E92576A05A00B40105 /* ViewController.swift in Sources */,
+				CE66732F2576FDCB00B40105 /* UIColor.swift in Sources */,
+				CE6672E92576A05A00B40105 /* HomeViewController.swift in Sources */,
 				CE66732C2576E6E500B40105 /* NavViewController.swift in Sources */,
 				CE6672EF2576A05A00B40105 /* Weather_App_DVT.xcdatamodeld in Sources */,
 				CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */,

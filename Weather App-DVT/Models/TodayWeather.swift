@@ -52,10 +52,13 @@ extension TodayWeather {
             
         }
         
-        if let weather = dataInJSON[Key.weather] as? Dictionary<String, AnyObject> {
+        if let weather = dataInJSON[Key.weather]![0] as? Dictionary<String, AnyObject> {
+            
             if let condition = weather[Key.weatherCondition] as? String {
+                
                 self.weatherCondition = condition
             }
         }
+        
     }
 }

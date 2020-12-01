@@ -18,6 +18,7 @@ struct TodayWeatherViewModel {
         self.temperature        = TodayWeatherViewModel.formatValue(value: model.temperature, endStringWith: "°")
         self.maxTemperature     = TodayWeatherViewModel.formatValue(value: model.maxTemperature, endStringWith: "°")
         self.minTemperature     = TodayWeatherViewModel.formatValue(value: model.minTemperature, endStringWith: "°")
+        self.weatherCondition   = model.weatherCondition
     }
     
     static func formatValue(value: Double, endStringWith: String = "", castToInt: Bool = true) -> String {
