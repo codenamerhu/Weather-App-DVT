@@ -17,6 +17,7 @@
 		CE6672FF2576A05D00B40105 /* Weather_App_DVTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672FE2576A05D00B40105 /* Weather_App_DVTTests.swift */; };
 		CE66730A2576A05D00B40105 /* Weather_App_DVTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673092576A05D00B40105 /* Weather_App_DVTUITests.swift */; };
 		CE6673192576A22900B40105 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673182576A22900B40105 /* Coordinate.swift */; };
+		CE66731C2576AA2C00B40105 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66731B2576AA2C00B40105 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CE6673092576A05D00B40105 /* Weather_App_DVTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_App_DVTUITests.swift; sourceTree = "<group>"; };
 		CE66730B2576A05D00B40105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6673182576A22900B40105 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		CE66731B2576AA2C00B40105 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		CE6672E32576A05A00B40105 /* Weather App-DVT */ = {
 			isa = PBXGroup;
 			children = (
+				CE66731A2576AA0C00B40105 /* Utils */,
 				CE6673172576A1C700B40105 /* Models */,
 				CE6672E42576A05A00B40105 /* AppDelegate.swift */,
 				CE6672E62576A05A00B40105 /* SceneDelegate.swift */,
@@ -140,6 +143,14 @@
 				CE6673182576A22900B40105 /* Coordinate.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE66731A2576AA0C00B40105 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE66731B2576AA2C00B40105 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 				CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */,
 				CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */,
 				CE6673192576A22900B40105 /* Coordinate.swift in Sources */,
+				CE66731C2576AA2C00B40105 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
