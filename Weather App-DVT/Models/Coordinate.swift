@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Coordinate {
+    static let sharedInstance = Coordinate(latitude: 0.0, longitude: 0.0)
     
+    static let locationManager = CLLocationManager()
+    
+    var latitude: Double
+    var longitude: Double
 }
