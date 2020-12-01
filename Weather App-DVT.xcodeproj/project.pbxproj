@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,8 @@
 		CE66731E2576B7C400B40105 /* TodayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66731D2576B7C400B40105 /* TodayWeather.swift */; };
 		CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */; };
 		CE6673232576C7EF00B40105 /* OpenWeatherMapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */; };
+		CE6673262576D3BC00B40105 /* TodayWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673252576D3BC00B40105 /* TodayWeatherViewModel.swift */; };
+		CE66732C2576E6E500B40105 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66732B2576E6E500B40105 /* NavViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		CE66731D2576B7C400B40105 /* TodayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeather.swift; sourceTree = "<group>"; };
 		CE6673202576C6EE00B40105 /* OpenWeatherMapClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapClient.swift; sourceTree = "<group>"; };
 		CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapError.swift; sourceTree = "<group>"; };
+		CE6673252576D3BC00B40105 /* TodayWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewModel.swift; sourceTree = "<group>"; };
+		CE66732B2576E6E500B40105 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +117,6 @@
 				6A028E52A5FFABA7565D737F /* Pods-Weather App-DVTTests.debug.xcconfig */,
 				334CF61A04133D25BCDD4CF4 /* Pods-Weather App-DVTTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -152,6 +155,8 @@
 		CE6672E32576A05A00B40105 /* Weather App-DVT */ = {
 			isa = PBXGroup;
 			children = (
+				CE66732A2576E6D300B40105 /* Views */,
+				CE6673242576D36C00B40105 /* ModelView */,
 				CE66731F2576C61300B40105 /* Networking */,
 				CE66731A2576AA0C00B40105 /* Utils */,
 				CE6673172576A1C700B40105 /* Models */,
@@ -209,6 +214,22 @@
 				CE6673222576C7EF00B40105 /* OpenWeatherMapError.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		CE6673242576D36C00B40105 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				CE6673252576D3BC00B40105 /* TodayWeatherViewModel.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		CE66732A2576E6D300B40105 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE66732B2576E6E500B40105 /* NavViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,11 +491,13 @@
 			files = (
 				CE66731E2576B7C400B40105 /* TodayWeather.swift in Sources */,
 				CE6672E92576A05A00B40105 /* ViewController.swift in Sources */,
+				CE66732C2576E6E500B40105 /* NavViewController.swift in Sources */,
 				CE6672EF2576A05A00B40105 /* Weather_App_DVT.xcdatamodeld in Sources */,
 				CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */,
 				CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */,
 				CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */,
 				CE6673192576A22900B40105 /* Coordinate.swift in Sources */,
+				CE6673262576D3BC00B40105 /* TodayWeatherViewModel.swift in Sources */,
 				CE6673232576C7EF00B40105 /* OpenWeatherMapError.swift in Sources */,
 				CE66731C2576AA2C00B40105 /* Constants.swift in Sources */,
 			);

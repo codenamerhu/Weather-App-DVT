@@ -20,7 +20,7 @@ struct Coordinate {
     // location permission check
     typealias CheckLocationPermissionCompletionHandler = (Bool) -> Void
     static func checkForGrantedLocationPermissions(completionHandler completion: @escaping CheckLocationPermissionCompletionHandler) {
-        
+        print("test")
         let locationPermisionStatusGranted = CLLocationManager.authorizationStatus() == .authorizedWhenInUse
         
         if locationPermisionStatusGranted {
