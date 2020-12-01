@@ -15,4 +15,5 @@ enum OpenWeatherMapError: Error {
     case jsonConversionFailure
     case invalidUrl
     case jsonParsingFailure
+    case noError
 }

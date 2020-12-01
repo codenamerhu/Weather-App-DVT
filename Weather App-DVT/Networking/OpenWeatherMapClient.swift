@@ -25,7 +25,41 @@ class OpenWeatherMapClient {
             return
         }
         
+        let params: Parameters = self.buildParameters(coordinate: coordinate)
         
+        AF.request(url, parameters: params).responseJSON { response in
+            
+            guard let JSONData = response.value as? Dictionary<String, AnyObject> else {
+                completion(nil, .invalidUrl)
+                return
+            }
+            
+            print(JSONData)
+            
+            if response.response?.statusCode == 200 {
+                guard let currentWeather = TodayWeather(dataInJSON: JSONData) else {
+                    completion(nil, .jsonParsingFailure)
+                    print(JSONData)
+                    
+                    return
+                }
+                
+                completion(currentWeather, .noError         )
+            } else {
+                completion(nil, .responseUnsuccessful)
+            }
+        }
         
+    }
+    
+    
+    func buildParameters(coordinate: Coordinate) -> Parameters {
+        let params: Parameters = [
+            "appid":Constants.APP_ID,
+            "lat":String(coordinate.latitude),
+            "lon":String(coordinate.longitude)
+        ]
+        
+        return params
     }
 }
