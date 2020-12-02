@@ -27,4 +27,23 @@ extension ForecastWeather {
         static let weatherKey = "weather"
         static let weatherCondition  = "main"
     }
+    
+    init?(dataInJson: [String: AnyObject]) {
+        
+        if let dateValue = dataInJson[Key.date] as? Double {
+            self.date = dateValue
+        }
+        
+        if let main = dataInJson[Key.tempKey] as? Dictionary<String, AnyObject> {
+            if let temperatureValue = main[Key.temparatureDay] as? Double {
+                self.temperature = temperatureValue
+            }
+        }
+        
+        if let weather = dataInJson[Key.weatherKey] as? [Dictionary<String, AnyObject>] {
+            if let weatherConditionValue = weather[0][Key.weatherCondition] as? String {
+                self.weatherCondition = weatherConditionValue
+            }
+        }
+    }
 }
