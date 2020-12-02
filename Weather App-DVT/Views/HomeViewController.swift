@@ -11,7 +11,7 @@ import CoreLocation
 import Alamofire
 
 var todayWeatherViewModel: TodayWeatherViewModel!
-var forecastWeatherViewModel: [ForecastWeatherViewModel] = []
+
 
 class HomeViewController: UIViewController {
 
@@ -29,6 +29,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var maxTempVlaue: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var daysArray = [String]()
+    
+    var forecastWeatherViewModel: [ForecastWeatherViewModel] = []
     
     
     override func viewDidLoad() {
@@ -77,14 +81,24 @@ class HomeViewController: UIViewController {
                 [unowned self] forecastsWeather, error in
                 if let forecastsWeather = forecastsWeather {
                     if forecastsWeather.count > 0 {
-                        forecastWeatherViewModel =  []
+                        self.forecastWeatherViewModel =  []
                     }
                     
                     for forecastWeather in forecastsWeather {
                         let forecastWeatherVM = ForecastWeatherViewModel(model: forecastWeather)
-                        forecastWeatherViewModel.append(forecastWeatherVM!)
                         
-                        self.tableView.reloadData()
+                        print("forre \(forecastWeatherVM)")
+                        
+                        if self.daysArray.contains((forecastWeatherVM?.weekday)!) {
+                            
+                        } else {
+                            self.daysArray.append((forecastWeatherVM?.weekday)!)
+                            self.forecastWeatherViewModel.append(forecastWeatherVM!)
+                            self.tableView.reloadData()
+                        }
+                        
+                        
+                        
                     }
                 }
             }
@@ -172,18 +186,24 @@ extension HomeViewController : CLLocationManagerDelegate {
 // MARK: - Extension - UITableViewDelegate and DataSource
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return forecastWeatherViewModel.count
+        return self.forecastWeatherViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
+        print("row \(forecastWeatherViewModel[indexPath.row])")
         
+        // check if day exists in arraydaysArray.append(forecasteWeatherViewModel.weekday!)
         let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier, for: indexPath) as! ForecastDayTableViewCell
-        //cell.items = forecastWeatherViewModel.
-        cell.day.text = forecasteWeatherViewModel.weekday
-        cell.taperature.text = forecasteWeatherViewModel.temperature
-        
+            
+            //cell.items = forecastWeatherViewModel.
+            daysArray.append(forecasteWeatherViewModel.weekday!)
+            cell.day.text = forecasteWeatherViewModel.weekday
+            cell.taperature.text = forecasteWeatherViewModel.temperature
         return cell
+        
+       
     }
     
     
