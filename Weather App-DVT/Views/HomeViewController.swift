@@ -126,36 +126,46 @@ class HomeViewController: UIViewController {
         
         weatherCon = (viewModel.weatherCondition?.lowercased())!
         
-        if viewModel.weatherCondition?.lowercased() == "clouds" {
+        
+        let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon)
+        
+        switch weatherConditionIs {
+        case .sunny:
+            
+            weatherThemeImage.image = UIImage(named: Constants.SUNNY)
+            currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
+            tableView.backgroundColor = Constants.SUNNY_CL
+            
+            ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
+            
+        case .clear:
+            weatherThemeImage.image = UIImage(named: Constants.SUNNY)
+            currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
+            tableView.backgroundColor = Constants.SUNNY_CL
+            
+            ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
+            
+        case .clouds:
+            
             weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
             currentWeatherBackground.backgroundColor = Constants.CLOUDY_CL
             tableView.backgroundColor = Constants.CLOUDY_CL
             
             ForecastDayTableViewCell().contentView.backgroundColor = Constants.CLOUDY_CL
-        }
-        
-        if viewModel.weatherCondition?.lowercased() == "sunny" {
-            weatherThemeImage.image = UIImage(named: Constants.SUNNY)
-            currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
-            tableView.backgroundColor = Constants.SUNNY_CL
             
-            ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
-        }
-        
-        if viewModel.weatherCondition?.lowercased() == "clear" {
-            weatherThemeImage.image = UIImage(named: Constants.SUNNY)
-            currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
-            tableView.backgroundColor = Constants.SUNNY_CL
-            
-            ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
-        }
-        
-        if viewModel.weatherCondition?.lowercased() == "rainy" {
+        case .rain:
             weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
             currentWeatherBackground.backgroundColor = Constants.RAINY_CL
             tableView.backgroundColor = Constants.RAINY_CL
             
             ForecastDayTableViewCell().contentView.backgroundColor = Constants.RAINY_CL
+        
+        case .none:
+            weatherThemeImage.image = UIImage(named: Constants.SUNNY)
+            currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
+            tableView.backgroundColor = Constants.SUNNY_CL
+            
+            ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
         }
         
     }
