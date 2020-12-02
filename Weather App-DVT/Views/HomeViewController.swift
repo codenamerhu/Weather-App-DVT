@@ -11,6 +11,7 @@ import CoreLocation
 import Alamofire
 
 var todayWeatherViewModel: TodayWeatherViewModel!
+var forecastWeatherViewModel: [ForecastWeatherViewModel] = []
 
 class HomeViewController: UIViewController {
 
@@ -71,6 +72,7 @@ class HomeViewController: UIViewController {
                     self.displayTodayWeatherData(using: todayWeatherViewModel)
                 }
             }
+            
         }
     }
     

@@ -17,6 +17,7 @@ class OpenWeatherMapClient {
     }()
     
     typealias TodayWeatherCompletionHandler  = (TodayWeather?, OpenWeatherMapError) -> Void
+    typealias ForecastWeatherCompletionHandler  = ([ForecastWeather]?, OpenWeatherMapError) -> Void
     
     func getTodayWeather(at coordinate: Coordinate, completionHandler completion: @escaping TodayWeatherCompletionHandler) {
         
@@ -50,6 +51,43 @@ class OpenWeatherMapClient {
             }
         }
         
+    }
+    
+    func getForecastWeather(at coordinate: Coordinate, completionHandler completion: @escaping ForecastWeatherCompletionHandler) {
+        
+        guard let url = URL(string: Constants.API_ENDPOINT_FORECAST_WEATHER, relativeTo: baseUrl) else {
+            completion(nil, .invalidUrl)
+            return
+        }
+        
+        let params: Parameters = self.buildParameters(coordinate: coordinate)
+        
+        AF.request(url, parameters: params).responseJSON { response in
+            
+            guard let JSONData = response.value as? Dictionary<String, AnyObject> else {
+                completion(nil, .invalidUrl)
+                return
+            }
+            
+            print(JSONData)
+            
+            if response.response?.statusCode == 200 {
+                var forecasts: [ForecastWeather] = []
+                
+                if let dict = JSONData as? Dictionary<String, AnyObject> {
+                    if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                        for obj in list {
+                            let forecast = ForecastWeather(dataInJson: obj)
+                            forecasts.append(forecast!)
+                        }
+                    }
+                }
+                
+                completion(forecasts, .noError         )
+            } else {
+                completion(nil, .responseUnsuccessful)
+            }
+        }
     }
     
     
