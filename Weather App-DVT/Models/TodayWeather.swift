@@ -13,11 +13,15 @@ struct TodayWeather {
     var weatherCondition: String    = ""
     var maxTemperature: Double      = Double.infinity
     var minTemperature: Double      = Double.infinity
+    
+    var date: Double = Double.infinity
 }
 
 extension TodayWeather {
     
     struct Key {
+        
+        static let date = "dt"
         
         // MARK:- Main
         static let mainKey          = "main"

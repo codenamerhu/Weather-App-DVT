@@ -13,12 +13,17 @@ class ForecastDayTableViewCell: UITableViewCell {
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var taperature: UILabel!
+    @IBOutlet var contentView2: UIView!
+    
+    var cellBackgroundColor: UIColor?
     
     static let identifier = "ForecastCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        contentView.backgroundColor = cellBackgroundColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
     
     var forecastWeatherViewModel: [ForecastWeatherViewModel] = []
     
+    var weatherCon = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,22 +120,38 @@ class HomeViewController: UIViewController {
     
     func ConfigureUI(using viewModel: TodayWeatherViewModel){
         
+        weatherCon = (viewModel.weatherCondition?.lowercased())!
+        
         if viewModel.weatherCondition?.lowercased() == "clouds" {
             weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
             currentWeatherBackground.backgroundColor = Constants.CLOUDY_CL
             tableView.backgroundColor = Constants.CLOUDY_CL
+            
+            ForecastDayTableViewCell().contentView.backgroundColor = Constants.CLOUDY_CL
         }
         
         if viewModel.weatherCondition?.lowercased() == "sunny" {
             weatherThemeImage.image = UIImage(named: Constants.SUNNY)
             currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
             tableView.backgroundColor = Constants.SUNNY_CL
+            
+            ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
+        }
+        
+        if viewModel.weatherCondition?.lowercased() == "clear" {
+            weatherThemeImage.image = UIImage(named: Constants.SUNNY)
+            currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
+            tableView.backgroundColor = Constants.SUNNY_CL
+            
+            ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
         }
         
         if viewModel.weatherCondition?.lowercased() == "rainy" {
             weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
             currentWeatherBackground.backgroundColor = Constants.RAINY_CL
             tableView.backgroundColor = Constants.RAINY_CL
+            
+            ForecastDayTableViewCell().contentView.backgroundColor = Constants.RAINY_CL
         }
         
     }
@@ -186,24 +204,68 @@ extension HomeViewController : CLLocationManagerDelegate {
 // MARK: - Extension - UITableViewDelegate and DataSource
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("row count \(self.forecastWeatherViewModel.count)")
+        
         return self.forecastWeatherViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
-        print("row \(forecastWeatherViewModel[indexPath.row])")
         
-        // check if day exists in arraydaysArray.append(forecasteWeatherViewModel.weekday!)
-        let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier, for: indexPath) as! ForecastDayTableViewCell
+        
+        
+        if indexPath.row > forecastWeatherViewModel.count - 1{
+            return UITableViewCell()
+        } else {
+            // check if day exists in arraydaysArray.append(forecasteWeatherViewModel.weekday!)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier, for: indexPath) as! ForecastDayTableViewCell
+                let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
+                print("row \(forecastWeatherViewModel[indexPath.row])")
             
-            //cell.items = forecastWeatherViewModel.
-            daysArray.append(forecasteWeatherViewModel.weekday!)
-            cell.day.text = forecasteWeatherViewModel.weekday
-            cell.taperature.text = forecasteWeatherViewModel.temperature
-        return cell
-        
+                //cell.items = forecastWeatherViewModel.
+                daysArray.append(forecasteWeatherViewModel.weekday!)
+                cell.day.text = forecasteWeatherViewModel.weekday
+                cell.taperature.text = forecasteWeatherViewModel.temperature
+            
+            if weatherCon == "clear" {
+                cell.contentView.backgroundColor = Constants.SUNNY_CL
+            }
+            
+            if weatherCon == "sunny" {
+                cell.contentView.backgroundColor = Constants.SUNNY_CL
+            }
+            
+            if weatherCon == "clouds" {
+                cell.contentView.backgroundColor = Constants.CLOUDY_CL
+            }
+            
+            if weatherCon == "rainy" {
+                cell.contentView.backgroundColor = Constants.RAINY_CL
+            }
+            
+            return cell
+        }
        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row > forecastWeatherViewModel.count - 1{
+            
+        } else {
+            // check if day exists in arraydaysArray.append(forecasteWeatherViewModel.weekday!)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier, for: indexPath) as! ForecastDayTableViewCell
+                let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
+                print("row \(forecastWeatherViewModel[indexPath.row])")
+            
+                //cell.items = forecastWeatherViewModel.
+                daysArray.append(forecasteWeatherViewModel.weekday!)
+                cell.day.text = forecasteWeatherViewModel.weekday
+                cell.taperature.text = forecasteWeatherViewModel.temperature
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        getWeatherTodayPlusForecaset()
     }
     
     
