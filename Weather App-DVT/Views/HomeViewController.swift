@@ -231,25 +231,30 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
                 cell.day.text = forecasteWeatherViewModel.weekday
                 cell.taperature.text = forecasteWeatherViewModel.temperature
             
-            if weatherCon == "clear" {
+            let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon)
+            
+            switch weatherConditionIs {
+            case .sunny:
                 cell.contentView.backgroundColor = Constants.SUNNY_CL
                 cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
-            }
-            
-            if weatherCon == "sunny" {
+                
+            case .clear:
                 cell.contentView.backgroundColor = Constants.SUNNY_CL
                 cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
-            }
-            
-            if weatherCon == "clouds" {
+                
+            case .clouds:
                 cell.contentView.backgroundColor = Constants.CLOUDY_CL
                 cell.icon.image = UIImage(named: Constants.CLOUDS_ICON)
-            }
-            
-            if weatherCon == "rainy" {
+                
+            case .rain:
                 cell.contentView.backgroundColor = Constants.RAINY_CL
                 cell.icon.image = UIImage(named: Constants.RAIN_ICON)
+            
+            case .none:
+                cell.contentView.backgroundColor = Constants.SUNNY_CL
+                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
             }
+            
             
             return cell
         }
