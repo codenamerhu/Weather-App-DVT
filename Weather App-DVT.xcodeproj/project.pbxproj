@@ -10,6 +10,7 @@
 		340653C40425E329D5DBABA1 /* Pods_Weather_App_DVTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FF175756761EE5AE5F48FE /* Pods_Weather_App_DVTTests.framework */; };
 		34994AE36F669640E73F6868 /* Pods_Weather_App_DVT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993D3068C1E982FDDDA9CF45 /* Pods_Weather_App_DVT.framework */; };
 		3A67CE4D9C7B5537482512E2 /* Pods_Weather_App_DVT_Weather_App_DVTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120C9C75374E46B8D56479D8 /* Pods_Weather_App_DVT_Weather_App_DVTUITests.framework */; };
+		CE32EF412577E61200201952 /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32EF402577E61200201952 /* WeatherCondition.swift */; };
 		CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672E42576A05A00B40105 /* AppDelegate.swift */; };
 		CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672E62576A05A00B40105 /* SceneDelegate.swift */; };
 		CE6672E92576A05A00B40105 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6672E82576A05A00B40105 /* HomeViewController.swift */; };
@@ -59,6 +60,7 @@
 		993D3068C1E982FDDDA9CF45 /* Pods_Weather_App_DVT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather_App_DVT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA6E52134CB83A6BFE8D473 /* Pods-Weather App-DVT-Weather App-DVTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather App-DVT-Weather App-DVTUITests.release.xcconfig"; path = "Target Support Files/Pods-Weather App-DVT-Weather App-DVTUITests/Pods-Weather App-DVT-Weather App-DVTUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B5A955B30A5F9B1E4A615C2B /* Pods-Weather App-DVT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather App-DVT.release.xcconfig"; path = "Target Support Files/Pods-Weather App-DVT/Pods-Weather App-DVT.release.xcconfig"; sourceTree = "<group>"; };
+		CE32EF402577E61200201952 /* WeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCondition.swift; sourceTree = "<group>"; };
 		CE6672E12576A05A00B40105 /* Weather App-DVT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App-DVT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6672E42576A05A00B40105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6672E62576A05A00B40105 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				CE66731B2576AA2C00B40105 /* Constants.swift */,
+				CE32EF402577E61200201952 /* WeatherCondition.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				CE66733225775D1400B40105 /* ForecastDayTableViewCell.swift in Sources */,
 				CE6672EF2576A05A00B40105 /* Weather_App_DVT.xcdatamodeld in Sources */,
 				CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */,
+				CE32EF412577E61200201952 /* WeatherCondition.swift in Sources */,
 				CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */,
 				CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */,
 				CE66733425775EBB00B40105 /* ForecastWeather.swift in Sources */,
