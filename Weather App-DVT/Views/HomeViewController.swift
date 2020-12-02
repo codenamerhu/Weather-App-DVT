@@ -91,7 +91,7 @@ class HomeViewController: UIViewController {
                     for forecastWeather in forecastsWeather {
                         let forecastWeatherVM = ForecastWeatherViewModel(model: forecastWeather)
                         
-                        print("forre \(forecastWeatherVM)")
+                        //print("forre \(forecastWeatherVM)")
                         
                         
                         // Show only 5 days && Skip Today
@@ -233,18 +233,22 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             
             if weatherCon == "clear" {
                 cell.contentView.backgroundColor = Constants.SUNNY_CL
+                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
             }
             
             if weatherCon == "sunny" {
                 cell.contentView.backgroundColor = Constants.SUNNY_CL
+                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
             }
             
             if weatherCon == "clouds" {
                 cell.contentView.backgroundColor = Constants.CLOUDY_CL
+                cell.icon.image = UIImage(named: Constants.CLOUDS_ICON)
             }
             
             if weatherCon == "rainy" {
                 cell.contentView.backgroundColor = Constants.RAINY_CL
+                cell.icon.image = UIImage(named: Constants.RAIN_ICON)
             }
             
             return cell

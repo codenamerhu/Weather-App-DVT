@@ -32,9 +32,16 @@ class Constants {
     static let CLOUDY   = "forest_cloudy"
     static let RAINY    = "forest_rainy"
     
+    static let SUNNY_ICON   = "clear"
+    static let CLOUDS_ICON  = "partlysunny"
+    static let RAIN_ICON    = "rain"
+    
     // MARK:- Color
     
     static let SUNNY_CL     = UIColor(hex: "#47AB2Fff")
     static let CLOUDY_CL    = UIColor(hex: "#54717Aff")
     static let RAINY_CL     = UIColor(hex: "#57575Dff")
+    
+    
+    
 }

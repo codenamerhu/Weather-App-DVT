@@ -27,7 +27,7 @@ struct TodayWeatherViewModel {
     
     static func formatValue(value: Double, endStringWith: String = "", castToInt: Bool = true) -> String {
         var returnValue: String
-        var defaultString = "-"
+        let defaultString = "-"
         
         if value == Double.infinity {
             returnValue = defaultString
