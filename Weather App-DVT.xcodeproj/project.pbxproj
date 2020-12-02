@@ -28,6 +28,7 @@
 		CE66732C2576E6E500B40105 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66732B2576E6E500B40105 /* NavViewController.swift */; };
 		CE66732F2576FDCB00B40105 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66732E2576FDCB00B40105 /* UIColor.swift */; };
 		CE66733225775D1400B40105 /* ForecastDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66733125775D1400B40105 /* ForecastDayTableViewCell.swift */; };
+		CE66733425775EBB00B40105 /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66733325775EBB00B40105 /* ForecastWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		CE66732B2576E6E500B40105 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		CE66732E2576FDCB00B40105 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		CE66733125775D1400B40105 /* ForecastDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayTableViewCell.swift; sourceTree = "<group>"; };
+		CE66733325775EBB00B40105 /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				CE6673182576A22900B40105 /* Coordinate.swift */,
 				CE66731D2576B7C400B40105 /* TodayWeather.swift */,
+				CE66733325775EBB00B40105 /* ForecastWeather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */,
 				CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */,
 				CE6672E72576A05A00B40105 /* SceneDelegate.swift in Sources */,
+				CE66733425775EBB00B40105 /* ForecastWeather.swift in Sources */,
 				CE6673192576A22900B40105 /* Coordinate.swift in Sources */,
 				CE6673262576D3BC00B40105 /* TodayWeatherViewModel.swift in Sources */,
 				CE6673232576C7EF00B40105 /* OpenWeatherMapError.swift in Sources */,
