@@ -62,7 +62,10 @@ class HomeViewController: UIViewController {
     func checkPermissions(){
         Coordinate.checkForGrantedLocationPermissions() { [unowned self] allowed in
             if allowed {
-                self.getWeatherTodayPlusForecaset()
+                
+                Coordinate.sharedInstance.latitude      = (self.locationManager.location?.coordinate.latitude)!
+                Coordinate.sharedInstance.longitude     = (self.locationManager.location?.coordinate.longitude)!
+               self.getWeatherTodayPlusForecaset()
             } else {
                 print("not able")
             }
@@ -70,6 +73,9 @@ class HomeViewController: UIViewController {
     }
     
     func getWeatherTodayPlusForecaset(){
+        
+        print("co's are \(Coordinate.sharedInstance)")
+        
         DispatchQueue.main.async {
             OpenWeatherMapClient.client.getTodayWeather(at: Coordinate.sharedInstance) {
                 [unowned self] currentWeather, error in
@@ -131,7 +137,6 @@ class HomeViewController: UIViewController {
         
         switch weatherConditionIs {
         case .sunny:
-            
             weatherThemeImage.image = UIImage(named: Constants.SUNNY)
             currentWeatherBackground.backgroundColor = Constants.SUNNY_CL
             tableView.backgroundColor = Constants.SUNNY_CL
@@ -146,7 +151,6 @@ class HomeViewController: UIViewController {
             ForecastDayTableViewCell().contentView.backgroundColor = Constants.SUNNY_CL
             
         case .clouds:
-            
             weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
             currentWeatherBackground.backgroundColor = Constants.CLOUDY_CL
             tableView.backgroundColor = Constants.CLOUDY_CL
@@ -154,7 +158,7 @@ class HomeViewController: UIViewController {
             ForecastDayTableViewCell().contentView.backgroundColor = Constants.CLOUDY_CL
             
         case .rain:
-            weatherThemeImage.image = UIImage(named: Constants.CLOUDY)
+            weatherThemeImage.image = UIImage(named: Constants.RAINY)
             currentWeatherBackground.backgroundColor = Constants.RAINY_CL
             tableView.backgroundColor = Constants.RAINY_CL
             
@@ -241,28 +245,46 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
                 cell.day.text = forecasteWeatherViewModel.weekday
                 cell.taperature.text = forecasteWeatherViewModel.temperature
             
-            let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon)
+            print("con is \(forecasteWeatherViewModel.weatherCondition!)")
+            
+            // Set dayofWeek Icon Image
+            let dayOfWeekWeatherCondition = WeatherCondition.init(rawValue: forecasteWeatherViewModel.weatherCondition!.lowercased())
+            
+            switch dayOfWeekWeatherCondition {
+            case .sunny:
+                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                
+            case .clear:
+                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                
+            case .clouds:
+                cell.icon.image = UIImage(named: Constants.CLOUDS_ICON)
+                
+            case .rain:
+                cell.icon.image = UIImage(named: Constants.RAIN_ICON)
+            
+            case .none:
+                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+            }
+            
+            // Change contentView background color to today weather condition color
+            let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon.lowercased())
             
             switch weatherConditionIs {
             case .sunny:
                 cell.contentView.backgroundColor = Constants.SUNNY_CL
-                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
                 
             case .clear:
                 cell.contentView.backgroundColor = Constants.SUNNY_CL
-                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
                 
             case .clouds:
                 cell.contentView.backgroundColor = Constants.CLOUDY_CL
-                cell.icon.image = UIImage(named: Constants.CLOUDS_ICON)
                 
             case .rain:
                 cell.contentView.backgroundColor = Constants.RAINY_CL
-                cell.icon.image = UIImage(named: Constants.RAIN_ICON)
             
             case .none:
                 cell.contentView.backgroundColor = Constants.SUNNY_CL
-                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
             }
             
             
@@ -288,7 +310,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        getWeatherTodayPlusForecaset()
+        //tableView.reloadData()
     }
     
     
