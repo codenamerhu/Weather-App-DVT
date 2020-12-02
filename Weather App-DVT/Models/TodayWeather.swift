@@ -41,6 +41,10 @@ extension TodayWeather {
     
     init?(dataInJSON: [String:AnyObject]) {
         
+        if let dateValue = dataInJSON[Key.date] as? Double {
+            self.date = dateValue
+        }
+        
         if let main = dataInJSON[Key.mainKey] as? Dictionary<String, AnyObject> {
             if let temparatureValue = main[Key.temperature] as? Double {
                 self.temperature = temparatureValue

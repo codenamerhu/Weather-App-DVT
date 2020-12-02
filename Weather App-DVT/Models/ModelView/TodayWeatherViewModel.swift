@@ -14,11 +14,15 @@ struct TodayWeatherViewModel {
     var maxTemperature: String?
     var minTemperature: String?
     
+    var day: String?
+    
     init(model: TodayWeather) {
         self.temperature        = TodayWeatherViewModel.formatValue(value: model.temperature, endStringWith: "°")
         self.maxTemperature     = TodayWeatherViewModel.formatValue(value: model.maxTemperature, endStringWith: "°")
         self.minTemperature     = TodayWeatherViewModel.formatValue(value: model.minTemperature, endStringWith: "°")
         self.weatherCondition   = model.weatherCondition
+        
+        self.day                = ForecastWeatherViewModel.getDayOfWeek(from: model.date)
     }
     
     static func formatValue(value: Double, endStringWith: String = "", castToInt: Bool = true) -> String {

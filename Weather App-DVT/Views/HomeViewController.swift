@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var daysArray = [String]()
+    var today = ""
     
     var forecastWeatherViewModel: [ForecastWeatherViewModel] = []
     
@@ -74,6 +75,7 @@ class HomeViewController: UIViewController {
                 [unowned self] currentWeather, error in
                 if let currentWeather = currentWeather {
                     todayWeatherViewModel = TodayWeatherViewModel(model: currentWeather)
+                    self.today = todayWeatherViewModel.day!
                     
                     self.displayTodayWeatherData(using: todayWeatherViewModel)
                 }
@@ -91,7 +93,9 @@ class HomeViewController: UIViewController {
                         
                         print("forre \(forecastWeatherVM)")
                         
-                        if self.daysArray.contains((forecastWeatherVM?.weekday)!) {
+                        
+                        // Show only 5 days && Skip Today
+                        if self.daysArray.contains((forecastWeatherVM?.weekday)!) || (forecastWeatherVM?.weekday)! == self.today {
                             
                         } else {
                             self.daysArray.append((forecastWeatherVM?.weekday)!)
