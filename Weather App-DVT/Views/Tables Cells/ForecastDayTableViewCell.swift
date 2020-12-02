@@ -14,6 +14,8 @@ class ForecastDayTableViewCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var taperature: UILabel!
     
+    static let identifier = "ForecastCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

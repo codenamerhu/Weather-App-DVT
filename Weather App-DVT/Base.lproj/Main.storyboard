@@ -127,6 +127,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="gaR-dB-Vzo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="r1x-bG-2Dw"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kba-Zd-5ce">
                                 <rect key="frame" x="162.5" y="97" width="50" height="51"/>
