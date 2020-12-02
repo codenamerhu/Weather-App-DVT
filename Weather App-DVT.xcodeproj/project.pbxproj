@@ -27,6 +27,7 @@
 		CE6673262576D3BC00B40105 /* TodayWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673252576D3BC00B40105 /* TodayWeatherViewModel.swift */; };
 		CE66732C2576E6E500B40105 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66732B2576E6E500B40105 /* NavViewController.swift */; };
 		CE66732F2576FDCB00B40105 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66732E2576FDCB00B40105 /* UIColor.swift */; };
+		CE66733225775D1400B40105 /* ForecastDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66733125775D1400B40105 /* ForecastDayTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		CE6673252576D3BC00B40105 /* TodayWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewModel.swift; sourceTree = "<group>"; };
 		CE66732B2576E6E500B40105 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		CE66732E2576FDCB00B40105 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		CE66733125775D1400B40105 /* ForecastDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 		CE66732A2576E6D300B40105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE66733025775CB800B40105 /* Tables Cells */,
 				CE6672E82576A05A00B40105 /* HomeViewController.swift */,
 				CE66732B2576E6E500B40105 /* NavViewController.swift */,
 			);
@@ -241,6 +244,14 @@
 				CE66732E2576FDCB00B40105 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE66733025775CB800B40105 /* Tables Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE66733125775D1400B40105 /* ForecastDayTableViewCell.swift */,
+			);
+			path = "Tables Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,6 +515,7 @@
 				CE66732F2576FDCB00B40105 /* UIColor.swift in Sources */,
 				CE6672E92576A05A00B40105 /* HomeViewController.swift in Sources */,
 				CE66732C2576E6E500B40105 /* NavViewController.swift in Sources */,
+				CE66733225775D1400B40105 /* ForecastDayTableViewCell.swift in Sources */,
 				CE6672EF2576A05A00B40105 /* Weather_App_DVT.xcdatamodeld in Sources */,
 				CE6672E52576A05A00B40105 /* AppDelegate.swift in Sources */,
 				CE6673212576C6EE00B40105 /* OpenWeatherMapClient.swift in Sources */,

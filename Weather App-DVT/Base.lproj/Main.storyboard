@@ -82,7 +82,7 @@
                                 <rect key="frame" x="0.0" y="387" width="375" height="280"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ForecastCell" rowHeight="58" id="bCc-rw-n7m">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ForecastCell" rowHeight="58" id="bCc-rw-n7m" customClass="ForecastDayTableViewCell" customModule="Weather_App_DVT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bCc-rw-n7m" id="Z6H-O8-yTg">
@@ -120,6 +120,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="G9S-q2-88J" secondAttribute="trailing" constant="20" id="u3y-V4-W7b"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="day" destination="cug-zJ-mB5" id="74O-Bb-Vy8"/>
+                                            <outlet property="icon" destination="jUf-Ru-xKO" id="40N-3n-Bmk"/>
+                                            <outlet property="taperature" destination="G9S-q2-88J" id="C5Y-SP-MvW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
