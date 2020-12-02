@@ -55,14 +55,14 @@ class HomeViewController: UIViewController {
     func checkPermissions(){
         Coordinate.checkForGrantedLocationPermissions() { [unowned self] allowed in
             if allowed {
-                self.getWeatherToday()
+                self.getWeatherTodayPlusForecaset()
             } else {
                 print("not able")
             }
         }
     }
     
-    func getWeatherToday(){
+    func getWeatherTodayPlusForecaset(){
         DispatchQueue.main.async {
             OpenWeatherMapClient.client.getTodayWeather(at: Coordinate.sharedInstance) {
                 [unowned self] currentWeather, error in
@@ -71,6 +71,11 @@ class HomeViewController: UIViewController {
                     
                     self.displayTodayWeatherData(using: todayWeatherViewModel)
                 }
+            }
+            
+            OpenWeatherMapClient.client.getForecastWeather(at: Coordinate.sharedInstance) {
+                [unowned self] forecastWeather, error in
+                
             }
             
         }
