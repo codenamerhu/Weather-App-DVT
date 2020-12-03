@@ -15,6 +15,7 @@ struct TodayWeatherViewModel {
     var minTemperature: String?
     
     var day: String?
+    var city: String?
     
     init(model: TodayWeather) {
         self.temperature        = TodayWeatherViewModel.formatValue(value: model.temperature, endStringWith: "°")
@@ -23,6 +24,7 @@ struct TodayWeatherViewModel {
         self.weatherCondition   = model.weatherCondition
         
         self.day                = ForecastWeatherViewModel.getDayOfWeek(from: model.date)
+        self.city               = model.city
     }
     
     static func formatValue(value: Double, endStringWith: String = "", castToInt: Bool = true) -> String {

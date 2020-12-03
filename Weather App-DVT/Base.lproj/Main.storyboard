@@ -42,8 +42,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0q-HU-ANL">
-                                        <rect key="frame" x="160" y="37" width="55.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0q-HU-ANL">
+                                        <rect key="frame" x="158.5" y="37" width="58.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -154,14 +154,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fez-jO-yKD">
+                                <rect key="frame" x="20" y="25" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="kre-3C-TyU"/>
+                                    <constraint firstAttribute="width" constant="35" id="sZz-n0-EzL"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="icons8-region-100"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqP-xM-lvv">
+                                <rect key="frame" x="65" y="32" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="id5-Wz-cCM" firstAttribute="top" secondItem="Pen-cA-OTH" secondAttribute="bottom" id="4Qe-yv-xbr"/>
                             <constraint firstItem="Pen-cA-OTH" firstAttribute="top" secondItem="TEV-Mz-xLZ" secondAttribute="bottom" constant="-4" id="6NU-qG-LnQ"/>
                             <constraint firstItem="id5-Wz-cCM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7YR-aH-pI1"/>
+                            <constraint firstItem="fez-jO-yKD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="GsZ-qj-arI"/>
                             <constraint firstItem="id5-Wz-cCM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Iac-uU-u2k"/>
                             <constraint firstItem="kba-Zd-5ce" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MUv-KV-Cnx"/>
+                            <constraint firstItem="kqP-xM-lvv" firstAttribute="leading" secondItem="fez-jO-yKD" secondAttribute="trailing" constant="10" id="Pgr-W1-8bT"/>
                             <constraint firstItem="TEV-Mz-xLZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UFL-Jd-SIS"/>
                             <constraint firstItem="3U9-m2-IlU" firstAttribute="top" secondItem="kba-Zd-5ce" secondAttribute="bottom" constant="10" id="YcE-RP-3mh"/>
                             <constraint firstItem="Pen-cA-OTH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZjQ-Qb-tqz"/>
@@ -169,13 +185,16 @@
                             <constraint firstItem="TEV-Mz-xLZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fXw-v0-wFT"/>
                             <constraint firstItem="kba-Zd-5ce" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="97" id="h2m-dP-IBv"/>
                             <constraint firstItem="id5-Wz-cCM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iZS-cc-NvK"/>
+                            <constraint firstItem="kqP-xM-lvv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="ptj-Bv-h7c"/>
                             <constraint firstItem="TEV-Mz-xLZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sk6-38-qFQ"/>
+                            <constraint firstItem="fez-jO-yKD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uNE-Fg-b6a"/>
                             <constraint firstItem="Pen-cA-OTH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zuo-we-4VK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="HkS-kF-qTe"/>
                     <connections>
+                        <outlet property="cityName" destination="kqP-xM-lvv" id="xna-C5-fkv"/>
                         <outlet property="currentTempValue" destination="Hul-u1-Xnw" id="wHv-PV-dCw"/>
                         <outlet property="currentTempValueMain" destination="kba-Zd-5ce" id="3iR-sQ-YRp"/>
                         <outlet property="currentWeatherBackground" destination="Pen-cA-OTH" id="Pm0-5Q-mgh"/>
@@ -210,5 +229,6 @@
     </scenes>
     <resources>
         <image name="forest_sunny" width="360" height="321"/>
+        <image name="icons8-region-100" width="25" height="25"/>
     </resources>
 </document>

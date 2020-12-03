@@ -30,12 +30,23 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var cityName: UILabel!
+    
     var daysArray = [String]()
     var today = ""
     
     var forecastWeatherViewModel: [ForecastWeatherViewModel] = []
     
     var weatherCon = ""
+    
+    var dayForecastWeatherLocal = [String]()
+    var conditionForecastWeatherLocal = [String]()
+    var tempForecastWeatherLocal = [String]()
+    
+    let userDef = UserDefaults.standard
+    
+    var hasInternet: Bool?
+    
     
     
     override func viewDidLoad() {
@@ -52,10 +63,19 @@ class HomeViewController: UIViewController {
         
         
         if Connectivity.isConnectedToInternet {
+            hasInternet = true
             self.checkPermissions()
         } else {
-            self .alertInternetAccessNeeded()
+            hasInternet = false
+            displayOfflineWeather()
+            dayForecastWeatherLocal = userDef.stringArray(forKey: "day") ?? [String]()
+            conditionForecastWeatherLocal = userDef.stringArray(forKey: "condition") ?? [String]()
+            tempForecastWeatherLocal = userDef.stringArray(forKey: "temp") ?? [String]()
+            tableView.reloadData()
+            self.alertInternetAccessNeeded()
         }
+        
+        print("has internet? \(hasInternet!)")
     }
     
     
@@ -119,18 +139,22 @@ class HomeViewController: UIViewController {
     }
     
     func displayTodayWeatherData(using viewModel: TodayWeatherViewModel){
-        ConfigureUI(using: viewModel)
+        ConfigureUI(weatherCondition: viewModel.weatherCondition!)
+        saveWeatherTodayLocally(using: viewModel)
+        
         self.currentTempValueMain.text = viewModel.temperature
         self.weatherConditionLabel.text = viewModel.weatherCondition
         
         self.minTempValue.text = viewModel.minTemperature
         self.currentTempValue.text = viewModel.temperature
         self.maxTempVlaue.text = viewModel.maxTemperature
+        self.cityName.text = viewModel.city
     }
     
-    func ConfigureUI(using viewModel: TodayWeatherViewModel){
+    func ConfigureUI(weatherCondition: String){
         
-        weatherCon = (viewModel.weatherCondition?.lowercased())!
+        weatherCon = weatherCondition.lowercased()
+        
         
         
         let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon)
@@ -192,6 +216,47 @@ class HomeViewController: UIViewController {
     
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    func saveWeatherTodayLocally(using viewModel: TodayWeatherViewModel){
+        
+        userDef.set(viewModel.day, forKey: "currentDay")
+        userDef.set(viewModel.city, forKey: "city")
+        userDef.set(viewModel.temperature, forKey: "currentTemp")
+        userDef.set(viewModel.weatherCondition, forKey: "currentCondition")
+        userDef.set(viewModel.minTemperature, forKey: "min")
+        userDef.set(viewModel.city, forKey: "city")
+        userDef.set(viewModel.maxTemperature, forKey: "max")
+        
+    }
+    
+    func saveWeatheForecastLocally(using viewModel: ForecastWeatherViewModel){
+        
+        // saves days of the week
+        dayForecastWeatherLocal.append(viewModel.weekday!)
+        conditionForecastWeatherLocal.append(viewModel.weatherCondition!)
+        tempForecastWeatherLocal.append(viewModel.temperature!)
+        print("local forecast \(dayForecastWeatherLocal)")
+        
+        userDef.set(dayForecastWeatherLocal, forKey: "day")
+        userDef.set(conditionForecastWeatherLocal, forKey: "condition")
+        userDef.set(tempForecastWeatherLocal, forKey: "temp")
+        
+        
+        
+    }
+    
+    func displayOfflineWeather(){
+        ConfigureUI(weatherCondition: userDef.string(forKey: "currentCondition")!)
+        weatherCon = userDef.string(forKey: "currentCondition")!
+        self.currentTempValueMain.text = userDef.string(forKey: "currentTemp")
+        self.weatherConditionLabel.text = userDef.string(forKey: "currentCondition")
+        
+        self.minTempValue.text = userDef.string(forKey: "min")
+        self.currentTempValue.text = userDef.string(forKey: "currentTemp")
+        self.maxTempVlaue.text = userDef.string(forKey: "max")
+        self.cityName.text = userDef.string(forKey: "city")
+    }
 
 }
 
@@ -222,77 +287,140 @@ extension HomeViewController : CLLocationManagerDelegate {
 // MARK: - Extension - UITableViewDelegate and DataSource
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("row count \(self.forecastWeatherViewModel.count)")
+        var count = 0
+        if hasInternet == true {
+            count = self.forecastWeatherViewModel.count
+        } else {
+            count = dayForecastWeatherLocal.count
+        }
+        print("row count \(count)")
         
-        return self.forecastWeatherViewModel.count
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier, for: indexPath) as! ForecastDayTableViewCell
         
         
-        
-        if indexPath.row > forecastWeatherViewModel.count - 1{
-            return UITableViewCell()
+        if hasInternet == true {
+            let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
+            print("row \(forecastWeatherViewModel[indexPath.row])")
+            
+            if indexPath.row > forecastWeatherViewModel.count - 1{
+                return UITableViewCell()
+            } else {
+                // check if day exists in arraydaysArray.append(forecasteWeatherViewModel.weekday!)
+                
+                
+                    //cell.items = forecastWeatherViewModel.
+                self.saveWeatheForecastLocally(using: forecasteWeatherViewModel)
+                    daysArray.append(forecasteWeatherViewModel.weekday!)
+                    cell.day.text = forecasteWeatherViewModel.weekday
+                    cell.taperature.text = forecasteWeatherViewModel.temperature
+                
+                print("con is \(forecasteWeatherViewModel.weatherCondition!)")
+                
+                // Set dayofWeek Icon Image
+                let dayOfWeekWeatherCondition = WeatherCondition.init(rawValue: forecasteWeatherViewModel.weatherCondition!.lowercased())
+                
+                switch dayOfWeekWeatherCondition {
+                case .sunny:
+                    cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                    
+                case .clear:
+                    cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                    
+                case .clouds:
+                    cell.icon.image = UIImage(named: Constants.CLOUDS_ICON)
+                    
+                case .rain:
+                    cell.icon.image = UIImage(named: Constants.RAIN_ICON)
+                
+                case .none:
+                    cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                }
+                
+                // Change contentView background color to today weather condition color
+                let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon.lowercased())
+                
+                switch weatherConditionIs {
+                case .sunny:
+                    cell.contentView.backgroundColor = Constants.SUNNY_CL
+                    
+                case .clear:
+                    cell.contentView.backgroundColor = Constants.SUNNY_CL
+                    
+                case .clouds:
+                    cell.contentView.backgroundColor = Constants.CLOUDY_CL
+                    
+                case .rain:
+                    cell.contentView.backgroundColor = Constants.RAINY_CL
+                
+                case .none:
+                    cell.contentView.backgroundColor = Constants.SUNNY_CL
+                }
+                
+            }
         } else {
+            
             // check if day exists in arraydaysArray.append(forecasteWeatherViewModel.weekday!)
-            let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier, for: indexPath) as! ForecastDayTableViewCell
-                let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
-                print("row \(forecastWeatherViewModel[indexPath.row])")
+                           
+                               //cell.items = forecastWeatherViewModel.
+                              // daysArray.append(forecasteWeatherViewModel.weekday!)
+            cell.day.text = dayForecastWeatherLocal[indexPath.row]
+            cell.taperature.text = tempForecastWeatherLocal[indexPath.row]
+                           
+                           // Set dayofWeek Icon Image
+            let dayOfWeekWeatherCondition = WeatherCondition.init(rawValue: conditionForecastWeatherLocal[indexPath.row].lowercased())
+                           
+                           switch dayOfWeekWeatherCondition {
+                           case .sunny:
+                               cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                               
+                           case .clear:
+                               cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                               
+                           case .clouds:
+                               cell.icon.image = UIImage(named: Constants.CLOUDS_ICON)
+                               
+                           case .rain:
+                               cell.icon.image = UIImage(named: Constants.RAIN_ICON)
+                           
+                           case .none:
+                               cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
+                           }
+                           
             
-                //cell.items = forecastWeatherViewModel.
-                daysArray.append(forecasteWeatherViewModel.weekday!)
-                cell.day.text = forecasteWeatherViewModel.weekday
-                cell.taperature.text = forecasteWeatherViewModel.temperature
+                           // Change contentView background color to today weather condition color
+                           let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon.lowercased())
+                           
+                           switch weatherConditionIs {
+                           case .sunny:
+                               cell.contentView.backgroundColor = Constants.SUNNY_CL
+                               
+                           case .clear:
+                               cell.contentView.backgroundColor = Constants.SUNNY_CL
+                               
+                           case .clouds:
+                               cell.contentView.backgroundColor = Constants.CLOUDY_CL
+                               
+                           case .rain:
+                               cell.contentView.backgroundColor = Constants.RAINY_CL
+                           
+                           case .none:
+                               cell.contentView.backgroundColor = Constants.SUNNY_CL
+                           } 
+                           
+                           
+                           
             
-            print("con is \(forecasteWeatherViewModel.weatherCondition!)")
-            
-            // Set dayofWeek Icon Image
-            let dayOfWeekWeatherCondition = WeatherCondition.init(rawValue: forecasteWeatherViewModel.weatherCondition!.lowercased())
-            
-            switch dayOfWeekWeatherCondition {
-            case .sunny:
-                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
-                
-            case .clear:
-                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
-                
-            case .clouds:
-                cell.icon.image = UIImage(named: Constants.CLOUDS_ICON)
-                
-            case .rain:
-                cell.icon.image = UIImage(named: Constants.RAIN_ICON)
-            
-            case .none:
-                cell.icon.image = UIImage(named: Constants.SUNNY_ICON)
-            }
-            
-            // Change contentView background color to today weather condition color
-            let weatherConditionIs = WeatherCondition.init(rawValue: weatherCon.lowercased())
-            
-            switch weatherConditionIs {
-            case .sunny:
-                cell.contentView.backgroundColor = Constants.SUNNY_CL
-                
-            case .clear:
-                cell.contentView.backgroundColor = Constants.SUNNY_CL
-                
-            case .clouds:
-                cell.contentView.backgroundColor = Constants.CLOUDY_CL
-                
-            case .rain:
-                cell.contentView.backgroundColor = Constants.RAINY_CL
-            
-            case .none:
-                cell.contentView.backgroundColor = Constants.SUNNY_CL
-            }
-            
-            
-            return cell
         }
+        return cell
        
     }
     
+    /*
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row > forecastWeatherViewModel.count - 1{
             
@@ -301,17 +429,13 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier, for: indexPath) as! ForecastDayTableViewCell
                 let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
                 print("row \(forecastWeatherViewModel[indexPath.row])")
-            
+                self.saveWeatheForecastLocally(using: forecasteWeatherViewModel)
                 //cell.items = forecastWeatherViewModel.
                 daysArray.append(forecasteWeatherViewModel.weekday!)
                 cell.day.text = forecasteWeatherViewModel.weekday
                 cell.taperature.text = forecasteWeatherViewModel.temperature
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //tableView.reloadData()
-    }
+    } */
     
     
 }

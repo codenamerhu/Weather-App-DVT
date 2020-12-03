@@ -15,13 +15,15 @@ struct TodayWeather {
     var minTemperature: Double      = Double.infinity
     
     var date: Double = Double.infinity
+    var city: String = ""
 }
 
 extension TodayWeather {
     
     struct Key {
         
-        static let date = "dt"
+        static let date     = "dt"
+        static let cityKey  = "name"
         
         // MARK:- Main
         static let mainKey          = "main"
@@ -43,6 +45,10 @@ extension TodayWeather {
         
         if let dateValue = dataInJSON[Key.date] as? Double {
             self.date = dateValue
+        }
+        
+        if let cityValue = dataInJSON[Key.cityKey] as? String {
+            self.city = cityValue
         }
         
         if let main = dataInJSON[Key.mainKey] as? Dictionary<String, AnyObject> {
