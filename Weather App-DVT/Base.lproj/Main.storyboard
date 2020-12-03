@@ -62,7 +62,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCP-QK-q4b">
                                         <rect key="frame" x="0.0" y="67" width="375" height="1"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="nKe-4Z-M13"/>
                                         </constraints>
@@ -143,13 +143,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kba-Zd-5ce">
-                                <rect key="frame" x="162.5" y="97" width="50" height="51"/>
+                                <rect key="frame" x="162.5" y="90" width="50" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUNNY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U9-m2-IlU">
-                                <rect key="frame" x="137" y="158" width="101" height="36"/>
+                                <rect key="frame" x="137" y="143" width="101" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -179,11 +179,11 @@
                             <constraint firstItem="kba-Zd-5ce" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MUv-KV-Cnx"/>
                             <constraint firstItem="kqP-xM-lvv" firstAttribute="leading" secondItem="fez-jO-yKD" secondAttribute="trailing" constant="10" id="Pgr-W1-8bT"/>
                             <constraint firstItem="TEV-Mz-xLZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UFL-Jd-SIS"/>
-                            <constraint firstItem="3U9-m2-IlU" firstAttribute="top" secondItem="kba-Zd-5ce" secondAttribute="bottom" constant="10" id="YcE-RP-3mh"/>
+                            <constraint firstItem="3U9-m2-IlU" firstAttribute="top" secondItem="kba-Zd-5ce" secondAttribute="bottom" constant="2" id="YcE-RP-3mh"/>
                             <constraint firstItem="Pen-cA-OTH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZjQ-Qb-tqz"/>
                             <constraint firstItem="3U9-m2-IlU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eGO-Bp-OGq"/>
                             <constraint firstItem="TEV-Mz-xLZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fXw-v0-wFT"/>
-                            <constraint firstItem="kba-Zd-5ce" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="97" id="h2m-dP-IBv"/>
+                            <constraint firstItem="kba-Zd-5ce" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="h2m-dP-IBv"/>
                             <constraint firstItem="id5-Wz-cCM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iZS-cc-NvK"/>
                             <constraint firstItem="kqP-xM-lvv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="ptj-Bv-h7c"/>
                             <constraint firstItem="TEV-Mz-xLZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sk6-38-qFQ"/>

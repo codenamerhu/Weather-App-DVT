@@ -236,13 +236,10 @@ class HomeViewController: UIViewController {
         dayForecastWeatherLocal.append(viewModel.weekday!)
         conditionForecastWeatherLocal.append(viewModel.weatherCondition!)
         tempForecastWeatherLocal.append(viewModel.temperature!)
-        print("local forecast \(dayForecastWeatherLocal)")
         
         userDef.set(dayForecastWeatherLocal, forKey: "day")
         userDef.set(conditionForecastWeatherLocal, forKey: "condition")
         userDef.set(tempForecastWeatherLocal, forKey: "temp")
-        
-        
         
     }
     
@@ -304,12 +301,14 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         
         
         if hasInternet == true {
-            let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
-            print("row \(forecastWeatherViewModel[indexPath.row])")
+            
             
             if indexPath.row > forecastWeatherViewModel.count - 1{
                 return UITableViewCell()
             } else {
+                
+                let forecasteWeatherViewModel = forecastWeatherViewModel[indexPath.row]
+                print("row \(forecastWeatherViewModel[indexPath.row])")
                 // check if day exists in arraydaysArray.append(forecasteWeatherViewModel.weekday!)
                 
                 
