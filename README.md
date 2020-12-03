@@ -9,4 +9,6 @@
   <li>pod install| Please run pod install to be able to run app<l/i>
 </ul>
 
+<img src="screenshots/1.png" width="320">
+
 <hr>
