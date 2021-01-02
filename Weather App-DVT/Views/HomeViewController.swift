@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import Alamofire
+import SkeletonView
 
 var todayWeatherViewModel: TodayWeatherViewModel!
 
@@ -82,9 +83,11 @@ class HomeViewController: UIViewController {
     func checkPermissions(){
         Coordinate.checkForGrantedLocationPermissions() { [unowned self] allowed in
             if allowed {
+                if self.locationManager.location?.coordinate.latitude != nil{
+                    Coordinate.sharedInstance.latitude      = (self.locationManager.location?.coordinate.latitude)!
+                    Coordinate.sharedInstance.longitude     = (self.locationManager.location?.coordinate.longitude)!
+                }
                 
-                Coordinate.sharedInstance.latitude      = (self.locationManager.location?.coordinate.latitude)!
-                Coordinate.sharedInstance.longitude     = (self.locationManager.location?.coordinate.longitude)!
                self.getWeatherTodayPlusForecaset()
             } else {
                 print("not able")
