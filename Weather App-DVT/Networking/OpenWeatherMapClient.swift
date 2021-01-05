@@ -45,7 +45,7 @@ class OpenWeatherMapClient {
                     return
                 }
                 
-                completion(currentWeather, .noError         )
+                completion(currentWeather, .noError)
             } else {
                 completion(nil, .responseUnsuccessful)
             }

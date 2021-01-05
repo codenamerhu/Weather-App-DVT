@@ -83,11 +83,14 @@ class HomeViewController: UIViewController {
     func checkPermissions(){
         Coordinate.checkForGrantedLocationPermissions() { [unowned self] allowed in
             if allowed {
-                if self.locationManager.location?.coordinate.latitude != nil{
+                if self.locationManager.location?.coordinate.latitude == nil{
+                    Coordinate.sharedInstance.latitude      = -26.010890128682234
+                    Coordinate.sharedInstance.longitude     = 27.994307160254642
+                } else {
                     Coordinate.sharedInstance.latitude      = (self.locationManager.location?.coordinate.latitude)!
                     Coordinate.sharedInstance.longitude     = (self.locationManager.location?.coordinate.longitude)!
                 }
-                
+            
                self.getWeatherTodayPlusForecaset()
             } else {
                 print("not able")
