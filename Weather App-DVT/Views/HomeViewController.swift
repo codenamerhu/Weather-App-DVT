@@ -58,6 +58,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.startUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
         
     }
