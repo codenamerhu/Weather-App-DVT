@@ -28,7 +28,7 @@ struct Coordinate {
             
             print("Coordinates are \(currentLocation?.coordinate.latitude as Any) \(currentLocation?.coordinate.longitude as Any)")
             
-            if(currentLocation?.coordinate.latitude==nil || currentLocation?.coordinate.latitude==nil) {
+            if(currentLocation?.coordinate.latitude == nil ) {
                 print("Simulcation cannot get location")
                 Coordinate.sharedInstance.latitude = -26.005506844488554
                 Coordinate.sharedInstance.latitude = 28.0839068002685

@@ -48,6 +48,9 @@ class HomeViewController: UIViewController {
     
     var hasInternet: Bool?
     
+    var lat: Double?
+    var lon: Double?
+    
     
     
     override func viewDidLoad() {
@@ -81,9 +84,13 @@ class HomeViewController: UIViewController {
     
     
     func checkPermissions(){
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         Coordinate.checkForGrantedLocationPermissions() { [unowned self] allowed in
             if allowed {
+                
                 if self.locationManager.location?.coordinate.latitude == nil{
+                    
                     Coordinate.sharedInstance.latitude      = -26.010890128682234
                     Coordinate.sharedInstance.longitude     = 27.994307160254642
                 } else {
@@ -269,15 +276,17 @@ extension HomeViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if self.locationManager.location?.coordinate.latitude == nil{
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        
+        if self.locationManager.location?.coordinate.latitude == nil {
+            
             Coordinate.sharedInstance.latitude      = -26.010890128682234
             Coordinate.sharedInstance.longitude     = 27.994307160254642
         } else {
-            Coordinate.sharedInstance.latitude      = (self.locationManager.location?.coordinate.latitude)!
-            Coordinate.sharedInstance.longitude     = (self.locationManager.location?.coordinate.longitude)!
+            Coordinate.sharedInstance.latitude      = (manager.location?.coordinate.latitude)!
+            Coordinate.sharedInstance.longitude     = (manager.location?.coordinate.longitude)!
         }
-        
-        self.getWeatherTodayPlusForecaset()
     }
     
     
