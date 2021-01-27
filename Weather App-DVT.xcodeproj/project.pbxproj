@@ -33,6 +33,7 @@
 		CE66733225775D1400B40105 /* ForecastDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66733125775D1400B40105 /* ForecastDayTableViewCell.swift */; };
 		CE66733425775EBB00B40105 /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66733325775EBB00B40105 /* ForecastWeather.swift */; };
 		CE6673362577623B00B40105 /* ForecastWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6673352577623B00B40105 /* ForecastWeatherViewModel.swift */; };
+		CEC0C20925A66D7C00C02C19 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC0C20825A66D7C00C02C19 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		CE66733125775D1400B40105 /* ForecastDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayTableViewCell.swift; sourceTree = "<group>"; };
 		CE66733325775EBB00B40105 /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		CE6673352577623B00B40105 /* ForecastWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherViewModel.swift; sourceTree = "<group>"; };
+		CEC0C20825A66D7C00C02C19 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				CE6673182576A22900B40105 /* Coordinate.swift */,
 				CE66731D2576B7C400B40105 /* TodayWeather.swift */,
 				CE66733325775EBB00B40105 /* ForecastWeather.swift */,
+				CEC0C20825A66D7C00C02C19 /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC0C20925A66D7C00C02C19 /* Movie.swift in Sources */,
 				CE66731E2576B7C400B40105 /* TodayWeather.swift in Sources */,
 				CE66732F2576FDCB00B40105 /* UIColor.swift in Sources */,
 				CE6672E92576A05A00B40105 /* HomeViewController.swift in Sources */,
